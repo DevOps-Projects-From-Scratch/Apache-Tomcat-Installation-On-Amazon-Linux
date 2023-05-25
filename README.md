@@ -52,5 +52,12 @@
 ![9](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/192698e1-3bbc-4922-93c9-d472f3d742c1)
 
 **you can see instance running shortly:**
-![10](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/5c9b0f96-8280-40a0-8dc3-c2a3c5826a03)
+![10](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/5c9b0f96-8280-40a0-8dc3-c2a3c5826a03) 
 
+## Step-2: Install Java.
+* Connect to the instance and switch to root user.
+* I am planning to install Tomcat-9 so Supported Java Versions are 8 or later. reffer https://tomcat.apache.org/whichversion.html 
+* **amazon-linux-extras install java-openjdk11 -y**
+* Better to check after installation  **java --version**
+
+## Step-3: Install Tomcat.
