@@ -63,18 +63,49 @@
 
 
 ## Step-3: Install Tomcat.
-* Download the Tomcat Binary files in /opt directory.  reffer page: https://tomcat.apache.org/download-90.cgi
-![12](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/42adf6c7-615f-4def-8a5b-980bfdab5919)
-
-![13](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/7cfea307-bc86-4302-983e-104e94fe2459)
-
 ```
 sudo su -
 cd /
 cd /opt
 ### Download tomcat binary
 wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.75/bin/apache-tomcat-9.0.75.zip
+
 ### unzip tomcat binary
 unzip https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.75/bin/apache-tomcat-9.0.75.zip
+
+### for convenience rename apache-tomcat-9.0.75 to tomcat.
+mv apache-tomcat-9.0.75 tomcat
 ```
+* Tomcat Binary files reffer page: https://tomcat.apache.org/download-90.cgi
+![12](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/42adf6c7-615f-4def-8a5b-980bfdab5919)
+
+![13](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/7cfea307-bc86-4302-983e-104e94fe2459)
+
+![14](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/fb05de0e-cce3-4f06-b832-c3cd4371b9b6)
+
+
+## Step-4: Add Execute Permission to catalina.sh, startup.sh & shutdown.sh
+```
+cd /opt/tomcat/bin
+chmod +x catalina.sh startup.sh shutdown.sh
+```
+![15](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/12f78416-3fcc-4743-aeda-c75a1ba7669d)
+
+## Step-5: Create link files for Tomcat Server up and Down (optional)
+we create softlink to start and stop Tomcat service from anywhere.
+if you Don't want to create softlink then you can start and stop Tomcat service by going to /opt/tomcat/bin directory.
+```
+ln -s /opt/tomcat/bin/startup.sh /usr/local/bin/tomcatup
+ln -s /opt/tomcat/bin/shutdown.sh /usr/local/bin/tomcatdown
+tomcatup 
+```
+![17](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/34d50d62-924f-4dbd-ae5d-969bfc645ec1)
+
+### Before starting Tomcat we can't access tomcat by web-browser.
+![16](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/9b9aea08-064a-4e36-81a2-88fe2b1790ad)
+
+### After starting Tomcat we can access tomcat though web-browser.
+![18](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/83597702-379a-415b-8e19-22026303aa58)
+
+
 
