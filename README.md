@@ -164,5 +164,16 @@ tomcatup
 ```
 ![24](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/127ab08b-6ff9-43f8-b800-1c72ecf7eb59)
 
+**Now we can access the tomcat Manager App, Server Status and Host Manager from web-browser**
+![25](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/330da052-c9c3-4aeb-888a-d5d01f48120c)
+
+![26](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/d433e34b-f0c4-494a-977a-24c46aaa0d24)
+
+## Note: Its not a Good practice to run tomcat services using root user. 
+* Create a tomcat user.
+* Give ownership of /opt/tomcat directory to tomcat user.
+* Then run tomcat services using tomcat user.
+
+
 
 
