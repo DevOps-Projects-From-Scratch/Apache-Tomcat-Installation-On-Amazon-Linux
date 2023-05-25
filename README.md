@@ -59,5 +59,22 @@
 * I am planning to install Tomcat-9 so Supported Java Versions are 8 or later. reffer https://tomcat.apache.org/whichversion.html 
 * **amazon-linux-extras install java-openjdk11 -y**
 * Better to check after installation  **java --version**
+![11](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/80b6741b-ffb1-4be6-9e99-49d7b12cc50c)
+
 
 ## Step-3: Install Tomcat.
+* Download the Tomcat Binary files in /opt directory.  reffer page: https://tomcat.apache.org/download-90.cgi
+![12](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/42adf6c7-615f-4def-8a5b-980bfdab5919)
+
+![13](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/7cfea307-bc86-4302-983e-104e94fe2459)
+
+```
+sudo su -
+cd /
+cd /opt
+### Download tomcat binary
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.75/bin/apache-tomcat-9.0.75.zip
+### unzip tomcat binary
+unzip https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.75/bin/apache-tomcat-9.0.75.zip
+```
+
