@@ -57,8 +57,10 @@
 ## Step-2: Install Java.
 * Connect to the instance and switch to root user.
 * I am planning to install Tomcat-9 so Supported Java Versions are 8 or later. reffer https://tomcat.apache.org/whichversion.html 
-* **amazon-linux-extras install java-openjdk11 -y**
-* Better to check after installation  **java --version**
+```
+amazon-linux-extras install java-openjdk11 -y
+java --version
+```
 ![11](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/80b6741b-ffb1-4be6-9e99-49d7b12cc50c)
 
 
@@ -106,6 +108,61 @@ tomcatup
 
 ### After starting Tomcat we can access tomcat though web-browser.
 ![18](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/83597702-379a-415b-8e19-22026303aa58)
+
+## Step-6: Update the user information in tomcat-users.xml
+
+```
+cd /opt/tomcat
+cd conf
+
+vi tomcat-users.xml
+
+#Add below lines between <tomcat-users> tag
+
+<role rolename="manager-gui"/>
+<role rolename="manager-script"/>
+<role rolename="manager-jmx"/>
+<role rolename="manager-status"/>   
+<user username="admin" password="admin" roles="manager-gui,manager-script,manager-jmx,manager-status"/>
+<user username="deployer" password="deployer" roles="manager-script"/>
+<user username="tomcat" password="tomcat" roles="manager-gui"/>
+
+```
+![23](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/4570ca18-d737-413a-98c6-d3ad7c7c3416)
+
+## Step-7: Change Some Settings to Manage Tomcat
+**To access the Tomcat Manager App, Server Status, Host Manager you need to comment out value tag in some xml file**
+![19](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/94be6f6d-8eea-4a94-9f90-ec42ae46b20a)
+
+**If you try to access Tomcat Manager App or Server Status or Host Manager with out doing the required settings then you will get 403 Access Denied Error.**
+![20](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/d9915117-6a9f-4e63-894e-95751b6195bb)
+
+```
+cd /opt/tomcat
+find -name context.xml
+./conf/context.xml
+./webapps/docs/META-INF/context.xml
+./webapps/examples/META-INF/context.xml
+./webapps/host-manager/META-INF/context.xml
+./webapps/manager/META-INF/context.xml
+#comment value tag sections in below all files
+vi ./webapps/examples/META-INF/context.xml
+vi ./webapps/host-manager/META-INF/context.xml
+vi ./webapps/manager/META-INF/context.xml
+
+```
+**Before Commenting the Value tag**
+![21](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/ea3be25b-9b85-4b9e-8574-79dfb37e4b29)
+
+**After Commenting out the Value tag**
+![22](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/e821cc96-ee6c-4909-99d0-0b897d38ca46)
+
+**To Apply The Changes Stop and Start the Tomcat Service**
+```
+tomcatdown
+tomcatup
+```
+![24](https://github.com/DevOps-Projects-From-Scratch/Apache-Tomcat-Installation-On-Amazon-Linux/assets/91256009/127ab08b-6ff9-43f8-b800-1c72ecf7eb59)
 
 
 
